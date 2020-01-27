@@ -1,35 +1,27 @@
-a{
+a {
   color: black;
 }
 
-a:hover{
+a:hover {
   transition: 2s;
   color: #1EB954;
 }
 
-.field{
+.field {
   margin: auto;
   width: 500px;
 }
 
-.field:focus{
-
-}
-
-.input-field{
+.input-field {
   background-color: black;
   color: #1EB954;
 }
 
-.input-field:focus{
+.input-field:focus {
   background-color: black;
 }
 
-.actions{
+.actions {
   margin: auto;
   width: 500px;
-}
-
-.actions:hover{
-
 }
