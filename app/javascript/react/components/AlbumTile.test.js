@@ -33,10 +33,10 @@ describe("AlbumTile", () => {
  });
 
  it("should render a span tag containing the text received via props", () =>{
-   expect(wrapper.find('span').props()).toBe("Selena Gomez")
+   expect(wrapper.find('span').text()).toBe("Selena Gomez")
  });
 
- it("should render a span tag containing the text received via props", () =>{
-   expect(wrapper.find('span').props()).toBe("Rare")
+ it("should render a p tag containing the text received via props", () =>{
+   expect(wrapper.find('p').text()).toBe("Rare")
  });
 })
