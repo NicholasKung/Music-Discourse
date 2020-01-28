@@ -4,7 +4,6 @@ import Adapter from "enzyme-adapter-react-16"
 Enzyme.configure({ adapter: new Adapter() })
 
 import AlbumTile from "./AlbumTile"
-// import AlbumIndex from "./AlbumIndex"
 
 describe("AlbumTile", () => {
   let wrapper
