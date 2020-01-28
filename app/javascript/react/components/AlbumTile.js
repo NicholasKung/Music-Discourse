@@ -3,8 +3,8 @@ import React, { useState } from "react"
 const AlbumTile = (props) => {
   return(
     <li>
-      <img src={props.albumData.art} /> <br />
-      <p>{props.albumData.artist} | {props.albumData.album}</p>
+      <img src={props.art} /> <br />
+      <span>{props.artist}</span> | <span>{props.album}</span>
     </li>
 
   )
