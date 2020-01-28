@@ -6,7 +6,6 @@ const AlbumTile = (props) => {
       <img src={props.art} /> <br />
       <span>{props.artist}</span> | <span>{props.album}</span>
     </li>
-
   )
 }
 
