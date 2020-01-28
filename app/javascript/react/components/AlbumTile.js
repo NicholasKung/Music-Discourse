@@ -4,7 +4,7 @@ const AlbumTile = (props) => {
   return(
     <li>
       <img src={props.art} /> <br />
-      <span>{props.artist}</span> | <span>{props.album}</span>
+      <span>{props.artist}</span> - <p>{props.album}</p>
     </li>
   )
 }
