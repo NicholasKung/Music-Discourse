@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import AlbumIndex from "./AlbumIndex"
+import AlbumShowContainer from './AlbumShowContainer'
 
 export const App = (props) => {
   return (
@@ -10,6 +11,7 @@ export const App = (props) => {
         <Switch>
           <Route exact path="/" component={AlbumIndex} />
           <Route exact path="/albums" component={AlbumIndex} />
+          <Route exact path="/albums/:id" component={AlbumShowContainer} />
         </Switch>
       </BrowserRouter>
     </div>
