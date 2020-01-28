@@ -26,8 +26,12 @@ const AlbumIndex = (props) => {
     return (
       <AlbumTile
         key={album.id}
-        albumData={album}
-        />
+        album={album.album}
+        art={album.art}
+        artist={album.artist}
+        year={album.year}
+        genre={album.genre}
+      />
     )
   })
 
