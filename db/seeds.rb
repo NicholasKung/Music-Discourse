@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Album.create(album:"Rare", art:"https://vignette.wikia.nocookie.net/selenagomez/images/4/46/Rare_Album_Cover.jpg/revision/latest?cb=20191212172712", artist: "Selena Gomez", year: "2020", genre: "pop")
+
+Album.create(album:"Age of Unreason", art:"https://www.billboard.com/files/styles/900_wide/public/media/Bad-Religion-Age-of-Unreason-album-art-2019-billboard-1240.jpg", artist: "Bad Religion", year: "2019", genre: "Punk")
+
+Album.create(album:"When We All Fall Asleep, Where Do We Go?", art:"https://www.billboard.com/files/styles/900_wide/public/media/Billie-Eilish-When-We-All-Fall-Asleep-Where-Do-We-Go_-album-art-2019-billboard-1240.jpg", artist: "Billie Eilish", year: "2019", genre: "Alt Pop")
+
+Album.create(album:"A Big Day", art:"https://www.billboard.com/files/styles/900_wide/public/media/Chance-the-Rapper-The-Big-Day-album-art-2019-billboard-1240.jpg", artist: "Chance the Rapper", year: "2019", genre: "Hip Hop")
