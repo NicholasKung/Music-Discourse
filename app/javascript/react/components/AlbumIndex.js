@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import AlbumTile from "./AlbumTile"
 
 const AlbumIndex = (props) => {
   const [albums, setAlbums] = useState([])
@@ -21,15 +22,12 @@ const AlbumIndex = (props) => {
       })
   }, [])
 
-  const albumTiles = albums.map(album => {
+  const albumTiles = albums.map((album) => {
     return (
-      <li>
-        <p>
-          <img src="album.art" alt="Album Art"/>
-          <br/>
-          <span> {album.album} </span>
-        </p>
-      </li>
+      <AlbumTile
+        key={album.id}
+        albumData={album}
+        />
     )
   })
 
