@@ -1,15 +1,16 @@
 import React from 'react';
 
-const AlbumShow = (props) => {
+const AlbumShow = ({ albumObject }) => {
+  let { id, name, art, artist, year, genre, album } = albumObject
 
   return(
     <div>
       <h1>This is the album show page</h1>
-      <h2>{props.album}</h2>
-      <img src={props.art} />
-      <h3>{props.artist}</h3>
-      <h6>{props.year}</h6>
-      <p>{props.genre}</p>
+      <h2>{album}</h2>
+      <img src={art} />
+      <h3>{artist}</h3>
+      <h6>{year}</h6>
+      <p>{genre}</p>
     </div>
   )
 }
