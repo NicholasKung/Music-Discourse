@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::AlbumsController, type: :controller do
-
   describe "GET#show" do
     let!(:album1) {Album.create(
       album: "test album 1",
@@ -45,6 +44,7 @@ RSpec.describe Api::V1::AlbumsController, type: :controller do
       expect(returned_json["genre"]).to eq "Punk"
     end
   end
+
   describe "GET#index" do
     let!(:first_album) { Album.create(
       album: "Mama",
