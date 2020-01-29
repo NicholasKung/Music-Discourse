@@ -82,4 +82,39 @@ RSpec.describe Api::V1::AlbumsController, type: :controller do
       expect(returned_json[1]["genre"]).to eq "Country"
     end
   end
+
+  describe "POST#create" do
+    context 'when a successful request is made with proper params' do
+      let!(:new_album_hash) { { album:"Pink", artist:"Nicki Minaj", genre:"Rap", year: 2011, art: "www.art.com"} }
+
+      it "create a new Album" do
+
+        expect{ post :create, params: new_album_hash , format: :json }.to change { Album.count }.from(0).to(1)
+      end
+
+      it "returns the new album as JSON" do
+        post :create, params: new_album_hash, format: :json
+
+        response_body = JSON.parse(response.body)
+
+        expect(response_body["album"]["album"]).to eq "Pink"
+        expect(response_body["album"]["artist"]).to eq "Nicki Minaj"
+        expect(response_body["album"]["genre"]).to eq "Rap"
+        expect(response_body["album"]["year"]).to eq 2011
+        expect(response_body["album"]["art"]).to eq "www.art.com"
+      end
+    end
+
+    context 'when a malformed request is made' do
+      let!(:bad_album_data) { { album: "Yellow" } }
+
+      it "does not persist data to database" do
+        prev_count = Album.count
+        post :create, params: bad_album_data, format: :json
+        new_count = Album.count
+
+        expect(new_count).to eq prev_count
+      end
+    end
+  end
 end
