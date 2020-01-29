@@ -1,7 +1,7 @@
 import React from "react"
 import Enzyme, { mount } from "enzyme"
 import Adapter from "enzyme-adapter-react-16"
-import { BrowserRouter } from "react-router-dom"
+import { BrowserRouter, Link } from "react-router-dom"
 Enzyme.configure({ adapter: new Adapter() })
 
 import AlbumTile from "./AlbumTile"
@@ -31,6 +31,10 @@ describe("AlbumTile", () => {
    expect(wrapper.find('img').props()).toEqual({
      src: "https://vignette.wikia.nocookie.net/selenagomez/images/4/46/Rare_Album_Cover.jpg/revision/latest?cb=20191212172712"})
  });
+
+ it("should contain a link that wraps the img tab to take User to show page", () => {
+   expect(wrapper.find(Link).props().to).toBe("/albums/1")
+ })
 
  it("should render a span tag containing the text received via props", () =>{
    expect(wrapper.find('span').text()).toBe("Selena Gomez")
