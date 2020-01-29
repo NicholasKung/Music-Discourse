@@ -5,6 +5,10 @@ class Api::V1::AlbumsController < ApplicationController
     render json: Album.all
   end
 
+  def show
+    render json: Album.find(params[:id])
+  end
+
   def create
     album = Album.new(album_params)
     if album.save
