@@ -5,4 +5,6 @@ class Album < ApplicationRecord
   validates :year, numericality: true
   validates :genre, presence: true
 
+  has_many :reviews
+
 end
