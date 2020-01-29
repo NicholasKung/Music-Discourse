@@ -7,24 +7,20 @@ import AlbumShow from "./AlbumShow"
 
 describe("AlbumShow", () => {
   let wrapper
-  let album = {
-    id: 1,
-    album: "Rare",
-    art: "https://vignette.wikia.nocookie.net/selenagomez/images/4/46/Rare_Album_Cover.jpg/revision/latest?cb=20191212172712",
-    artist: "Selena Gomez",
-    year: 2020,
-    genre: "Pop"
-  }
+  let albumObject
 
  beforeEach(() => {
+   albumObject = {
+     id: 1,
+     album: "Rare",
+     art: "https://vignette.wikia.nocookie.net/selenagomez/images/4/46/Rare_Album_Cover.jpg/revision/latest?cb=20191212172712",
+     artist: "Selena Gomez",
+     year: 2020,
+     genre: "Pop"
+   }
    wrapper = mount(
     <AlbumShow
-      key={album.id}
-      album={album.album}
-      art={album.art}
-      artist={album.artist}
-      year={album.year}
-      genre={album.genre}
+      albumObject={albumObject}
      />
    )
  })
