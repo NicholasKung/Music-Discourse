@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import AlbumTile from "./AlbumTile"
+import { Link } from "react-router-dom"
 
 const AlbumIndex = (props) => {
   const [albums, setAlbums] = useState([])
@@ -26,11 +27,7 @@ const AlbumIndex = (props) => {
     return (
       <AlbumTile
         key={album.id}
-        album={album.album}
-        art={album.art}
-        artist={album.artist}
-        year={album.year}
-        genre={album.genre}
+        albumData={album}
       />
     )
   })
