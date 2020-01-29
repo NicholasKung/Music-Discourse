@@ -26,12 +26,7 @@ const AlbumShowContainer = (props) => {
     <div>
       <h1>This is the album show container page</h1>
       <AlbumShow
-        id={album.id}
-        name={album.album}
-        art={album.art}
-        artist={album.artist}
-        year={album.year}
-        genre={album.genre}
+        albumObject={album}
       />
     </div>
   )
