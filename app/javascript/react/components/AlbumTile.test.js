@@ -1,29 +1,29 @@
 import React from "react"
 import Enzyme, { mount } from "enzyme"
 import Adapter from "enzyme-adapter-react-16"
+import { BrowserRouter } from "react-router-dom"
 Enzyme.configure({ adapter: new Adapter() })
 
 import AlbumTile from "./AlbumTile"
 
 describe("AlbumTile", () => {
   let wrapper
-  let album = {
-    id: 1,
-    album: "Rare",
-    art: "https://vignette.wikia.nocookie.net/selenagomez/images/4/46/Rare_Album_Cover.jpg/revision/latest?cb=20191212172712",
-    artist: "Selena Gomez",
-  }
+  let albumData
 
  beforeEach(() => {
+   albumData = {
+     id: 1,
+     album: "Rare",
+     art: "https://vignette.wikia.nocookie.net/selenagomez/images/4/46/Rare_Album_Cover.jpg/revision/latest?cb=20191212172712",
+     artist: "Selena Gomez",
+   }
+
    wrapper = mount(
+    <BrowserRouter>
     <AlbumTile
-      key={album.id}
-      album={album.album}
-      art={album.art}
-      artist={album.artist}
-      year={album.year}
-      genre={album.genre}
+      albumData={albumData}
      />
+    </BrowserRouter>
    )
  })
 
