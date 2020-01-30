@@ -15,7 +15,7 @@ RSpec.describe Api::V1::AlbumsController, type: :controller do
       artist: "Selena Gomez",
       year: 2020,
       genre: "Pop",
-      user: User.first
+      user: user
       ) }
 
     let!(:album2) { Album.create(
@@ -24,7 +24,7 @@ RSpec.describe Api::V1::AlbumsController, type: :controller do
       artist: "Bad Religion",
       year: 2019,
       genre: "Punk",
-      user: User.first
+      user: user
       ) }
     it "should return individual album" do
 
@@ -119,7 +119,7 @@ RSpec.describe Api::V1::AlbumsController, type: :controller do
 
       it "returns the new album as JSON" do
         sign_in user
-        
+
         post :create, params: new_album_hash, format: :json
 
         response_body = JSON.parse(response.body)
