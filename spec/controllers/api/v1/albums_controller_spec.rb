@@ -2,21 +2,30 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::AlbumsController, type: :controller do
   describe "GET#show" do
-    let!(:album1) {Album.create(
+
+    let!(:user) { User.create(
+      id:1,
+      email:"email6@email.com",
+      role: "member",
+      password:"123456"
+      ) }
+    let!(:album1) { Album.create(
       album: "test album 1",
       art: "https://vignette.wikia.nocookie.net/selenagomez/images/4/46/Rare_Album_Cover.jpg/revision/latest?cb=20191212172712",
       artist: "Selena Gomez",
       year: 2020,
-      genre: "Pop"
-      )}
+      genre: "Pop",
+      user: User.first
+      ) }
 
-    let!(:album2) {Album.create(
+    let!(:album2) { Album.create(
       album: "test album 2",
       art: "https://www.billboard.com/files/styles/900_wide/public/media/Bad-Religion-Age-of-Unreason-album-art-2019-billboard-1240.jpg",
       artist: "Bad Religion",
       year: 2019,
-      genre: "Punk"
-      )}
+      genre: "Punk",
+      user: User.first
+      ) }
     it "should return individual album" do
 
       get :show, params: {id: album1.id}
@@ -46,19 +55,27 @@ RSpec.describe Api::V1::AlbumsController, type: :controller do
   end
 
   describe "GET#index" do
+    let!(:user) { User.create(
+      id:1,
+      email:"email6@email.com",
+      role: "member",
+      password:"123456"
+      ) }
     let!(:first_album) { Album.create(
       album: "Mama",
       art: "https://media.giphy.com/media/pSpmpxFxFwDpC/giphy.gif",
       artist: "Tupac",
       year: 1992,
-      genre: "Pop"
+      genre: "Pop",
+      user: user
       ) }
     let!(:second_album) { Album.create(
       album: "Girls",
       art: "https://media.giphy.com/media/r6ALgGVKLg93O/giphy.gif",
       artist: "Beyonce",
       year: 2009,
-      genre: "Country"
+      genre: "Country",
+      user: user
       ) }
 
     it "should return a list of all the albums" do
@@ -85,18 +102,27 @@ RSpec.describe Api::V1::AlbumsController, type: :controller do
 
   describe "POST#create" do
     context 'when a successful request is made with proper params' do
-      let!(:new_album_hash) { { album:"Pink", artist:"Nicki Minaj", genre:"Rap", year: 2011, art: "www.art.com"} }
+      let!(:user) { User.create(
+        id:1,
+        email:"email6@email.com",
+        role: "member",
+        password:"123456"
+        ) }
+
+        let!(:new_album_hash) { { album:"Pink", artist:"Nicki Minaj", genre:"Rap", year: 2011, art: "www.art.com", user: user} }
 
       it "create a new Album" do
+        sign_in user
 
         expect{ post :create, params: new_album_hash , format: :json }.to change { Album.count }.from(0).to(1)
       end
 
       it "returns the new album as JSON" do
+        sign_in user
+        
         post :create, params: new_album_hash, format: :json
 
         response_body = JSON.parse(response.body)
-
         expect(response_body["album"]["album"]).to eq "Pink"
         expect(response_body["album"]["artist"]).to eq "Nicki Minaj"
         expect(response_body["album"]["genre"]).to eq "Rap"
