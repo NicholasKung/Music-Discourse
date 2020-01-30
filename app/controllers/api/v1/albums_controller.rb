@@ -11,6 +11,7 @@ class Api::V1::AlbumsController < ApplicationController
 
   def create
     album = Album.new(album_params)
+    album.user = current_user
     if album.save
       render json: { album: album }
     else
