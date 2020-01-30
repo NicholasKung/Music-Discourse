@@ -6,7 +6,7 @@ class CreateAlbums < ActiveRecord::Migration[5.2]
       t.string :artist, null: false
       t.integer :year, null: false
       t.string :genre, null: false
-      t.belongs_to :user, null: false
+      t.belongs_to :user
 
       t.timestamps
     end
