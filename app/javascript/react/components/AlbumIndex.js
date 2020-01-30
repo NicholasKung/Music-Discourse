@@ -38,6 +38,7 @@ const AlbumIndex = (props) => {
       <ul>
         {albumTiles}
       </ul>
+      <Link to={`/albums/new`} className = "button">Add a New Album</Link>
     </div>
   )
 }
