@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react"
+import { Redirect } from 'react-router-dom'
 import NewAlbumForm from "./NewAlbumForm"
 
 
 const NewAlbumFormContainer = (props) =>{
+  const [shouldRedirect, setShouldRedirect] = useState(false)
   const [albums, setAlbums] = useState([])
 
   const submitNewAlbum = (formPayload) => {
@@ -30,8 +32,14 @@ const NewAlbumFormContainer = (props) =>{
     setAlbums([
       ...albums,
       body])
+    setShouldRedirect(true)
   })
   .catch(error => console.error(`Error in fetch: ${error.message}`));
+}
+
+if(shouldRedirect) {
+  let albumId = albums[0].album.id
+  return <Redirect to ={`/albums/${albumId}`} />
 }
 
   return (
