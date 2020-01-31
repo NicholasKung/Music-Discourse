@@ -34,6 +34,7 @@ RSpec.describe Api::V1::AlbumsController, type: :controller do
       get :show, params: {id: album2.id}
       returned_json = JSON.parse(response.body)
 
+
       expect(response.status).to eq 200
       expect(response.content_type).to eq ("application/json")
 
