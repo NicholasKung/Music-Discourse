@@ -6,7 +6,9 @@ const ReviewsTile = ({ reviewData }) => {
   return(
     <div>
       <li>
-      {email}| {rating} | {review}
+      <span>{email}</span>|
+      <h3>{rating}</h3>|
+      <h4>{review}</h4>
       </li>
     </div>
   )
