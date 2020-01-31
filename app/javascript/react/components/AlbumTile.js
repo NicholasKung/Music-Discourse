@@ -3,15 +3,20 @@ import { Link } from "react-router-dom"
 
 const AlbumTile = ({ albumData }) => {
   let { id, album, art, artist, year, genre } = albumData
-  
+
   return(
-    <li>
-      <div className="show-link">
-        <Link to={`/albums/${id}`}><img src={art} /></Link>
-         <br />
-      </div>
-        <span>{artist}</span> - <p>{album}</p>
-    </li>
+      <li class="tile-position">
+        <div className="container">
+          <Link to={`/albums/${id}`}><img src={art} class="art"/></Link>
+          <div className="overlay">
+            <div class="tile-info">
+            <span>{artist}</span> - <p>{album}</p>
+          </div>
+        </div>
+          <br />
+
+        </div>
+      </li>
   )
 }
 
