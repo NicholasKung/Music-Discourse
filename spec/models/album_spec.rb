@@ -3,6 +3,8 @@ require 'rails_helper'
 
 describe Album do
 
+  it { should belong_to :user }
+
   it { should have_valid(:album).when("(What's the Story) Morning Glory?") }
   it { should_not have_valid(:album).when(nil, "") }
 

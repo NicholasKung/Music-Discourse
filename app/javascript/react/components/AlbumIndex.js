@@ -34,11 +34,13 @@ const AlbumIndex = (props) => {
 
   return (
     <div>
-      <h1>Albums Index Page</h1>
+      <div className="index-header">
+        <h2>Rate Your Favorite Albums!</h2>
+        <Link to={`/albums/new`} className = "button">Add a New Album</Link>
+      </div>
       <ul>
         {albumTiles}
       </ul>
-      <Link to={`/albums/new`} className = "button">Add a New Album</Link>
     </div>
   )
 }

@@ -1,0 +1,71 @@
+body {
+  background: black;
+}
+
+h1 {
+  align: center;
+  color: #1EB954;
+}
+
+.top-bar {
+  opacity: 0.9;
+  font-family: fantasy;
+}
+
+.art {
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  display: block;
+}
+
+.art:hover {
+  opacity: 0.8;
+  filter: alpha(opacity=50);
+}
+
+.tile-position {
+  float:left;
+  padding: 40px;
+  list-style-type: none;
+}
+
+.overlay {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .4s ease;
+  background-color: gray;
+}
+
+.container {
+  position: relative;
+}
+
+.container:hover .overlay {
+  opacity: .90;
+  border-radius: 50%;
+}
+
+.tile-info {
+  font-family: fantasy, cursive;
+  color: #1EB954;
+  font-weight: bold;
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.index-header {
+  text-align: center;
+  color: #1EB954;
+}
