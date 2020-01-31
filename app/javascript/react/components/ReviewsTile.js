@@ -1,8 +1,13 @@
 import React from "react"
 
-const ReviewsTile = (props) => {
+const ReviewsTile = ({ reviewData }) => {
+  let { email, rating, review } = reviewData
+
   return(
-    <div>THIS WILL BE THE REVIEWS TILE
+    <div>
+      <li>
+      {email}| {rating} | {review}
+      </li>
     </div>
   )
 }
