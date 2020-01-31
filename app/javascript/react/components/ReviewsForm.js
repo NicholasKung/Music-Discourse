@@ -1,10 +1,14 @@
 import React, { useState } from "react"
+import _ from "lodash"
+import ErrorsList from "./ErrorsList"
 
 const ReviewsForm = (props) => {
   const[reviewRecord, setReviewRecord] = useState({
     rating: "",
     review: ""
   })
+
+  const[errors, setErrors] = useState({})
 
   const handleChange = (event) => {
     setReviewRecord({
@@ -13,22 +17,37 @@ const ReviewsForm = (props) => {
     })
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    props.addReview(reviewRecord)
-    setReviewRecord({
-      rating: "",
-      review: ""
-    })
+  const validFormSubmission = () => {
+    let submitErrors = {}
+      if(reviewRecord["rating"].trim() === ""){
+        submitErrors = {
+          ...submitErrors,
+          ["rating"]: "is blank"
+        }
+      }
+    setErrors(submitErrors)
+    return _.isEmpty(submitErrors)
   }
 
-  // Must Setup Props from AlbumShowContainer
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    let formPayload = reviewRecord
+    if(validFormSubmission()){
+      props.onSubmit(formPayload)
+      setReviewRecord({
+        rating: "",
+        review: ""
+      })
+    }
+  }
 
   return(
     <div>
       <form className="reviews-form" onSubmit={handleSubmit}>
 
-        <label>
+        <ErrorsList errors={errors} />
+
+        <label>Rating
           <input
             type="number"
             name="rating"
@@ -39,14 +58,20 @@ const ReviewsForm = (props) => {
             />
         </label>
 
-        <label>
+        <label>Review
           <input
             type="text"
             name="review"
             onChange={handleChange}
-            value={reviewRecord.value}
+            value={reviewRecord.review}
             />
         </label>
+
+        <input
+          type="hidden"
+          name="albumId"
+          value={props.albumId}
+          />
 
         <input
           type="submit"
