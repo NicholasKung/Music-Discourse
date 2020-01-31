@@ -14,12 +14,10 @@ describe("ReviewsTile", () => {
     reviewData = {
       id: 1,
       rating: 7,
-      review: "good"
-      user: {
-        email:"test@test.com"
-      }
-    }
+      review: "good",
+      email:"test@test.com"
 
+    }
 
     wrapper = mount(
       <BrowserRouter>
@@ -30,7 +28,15 @@ describe("ReviewsTile", () => {
     )
   })
 
-  it("should render a li tag containing the list of items via props", () => {
-    expect(wrapper.find('li')).toEqual("test@test.com")
+  it("should render a span tag containing the list of items via props", () => {
+    expect(wrapper.find('span').text()).toEqual("test@test.com")
+  })
+
+  it("should render a h3 tag containing the list of items via props", () => {
+    expect(wrapper.find('h3').text()).toEqual("7")
+  })
+
+  it("should render a h4 tag containing the list of items via props", () => {
+    expect(wrapper.find('h4').text()).toEqual("good")
   })
 })
