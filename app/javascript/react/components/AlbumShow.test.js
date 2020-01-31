@@ -4,6 +4,7 @@ import Adapter from "enzyme-adapter-react-16"
 Enzyme.configure({ adapter: new Adapter() })
 
 import AlbumShow from "./AlbumShow"
+import
 
 describe("AlbumShow", () => {
   let wrapper
@@ -45,4 +46,6 @@ describe("AlbumShow", () => {
  it("should render a p tag containing the text received via props", () =>{
    expect(wrapper.find('p').text()).toBe("Pop")
  });
+
+ it("should render a ")
 })
