@@ -3,6 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :albums
 
+  validates :email, presence: true
+  validates :encrypted_password, presence: true, length: { minimum: 6 }
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
