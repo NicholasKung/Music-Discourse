@@ -5,11 +5,11 @@ const AlbumTile = ({ albumData }) => {
   let { id, album, art, artist, year, genre } = albumData
 
   return(
-      <li class="tile-position">
+      <li className="tile-position">
         <div className="container">
-          <Link to={`/albums/${id}`}><img src={art} class="art"/></Link>
+          <Link to={`/albums/${id}`}><img src={art}></Link>
           <div className="overlay">
-            <div class="tile-info">
+            <div className="tile-info">
             <span>{artist}</span> - <p>{album}</p>
           </div>
         </div>
