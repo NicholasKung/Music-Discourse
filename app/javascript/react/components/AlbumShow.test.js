@@ -46,6 +46,4 @@ describe("AlbumShow", () => {
  it("should render a p tag containing the text received via props", () =>{
    expect(wrapper.find('p').text()).toBe("Pop")
  });
-
-
 })
