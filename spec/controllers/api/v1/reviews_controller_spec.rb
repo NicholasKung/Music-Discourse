@@ -74,6 +74,11 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
 
   describe "POST#create" do
     context 'when a successful request is made with proper params' do
+      let!(:user3) {User.create(
+        email: "noyo@yo.com",
+        password: "password3"
+      )}
+
       let!(:new_review_hash) {{
         user: user3,
         user_id: user3.id,
@@ -82,11 +87,6 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
         rating: 5,
         review: "It was medium"
       }}
-
-      let!(:user3) {User.create(
-        email: "noyo@yo.com",
-        password: "password3"
-      )}
 
       it "creates a new Review" do
         sign_in user3
@@ -106,7 +106,24 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
         expect(returned_json["review"]["rating"]).to eq 5
       end
     end
+
+    context 'when a malformed request is made' do
+      let!(:bad_review_data) {{
+        user: user2,
+        user_id: user2.id,
+        album: album1,
+        album_id: album1.id,
+        review: "It was medium"
+      }}
+
+      it "does not persist data to database" do
+        prev_count = Review.count
+        post :create, params: bad_review_data, format: :json
+        new_count = Review.count
+
+        expect(new_count).to eq prev_count
+      end
+    end
+
   end
-
-
 end
