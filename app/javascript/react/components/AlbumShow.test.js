@@ -5,7 +5,6 @@ Enzyme.configure({ adapter: new Adapter() })
 
 import AlbumShow from "./AlbumShow"
 
-
 describe("AlbumShow", () => {
   let wrapper
   let albumObject
