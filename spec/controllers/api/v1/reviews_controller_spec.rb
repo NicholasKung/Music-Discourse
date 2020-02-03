@@ -4,13 +4,15 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
   let!(:user1) {User.create(
     id: 1,
     email: "yo@yo.com",
-    password: "password1"
+    password: "password1",
+    role: "member"
     )}
 
   let!(:user2) {User.create(
     id: 2,
     email: "no@yo.com",
-    password: "password2"
+    password: "password2",
+    role: "member"
       )}
 
   let!(:album1) {Album.create(
@@ -19,7 +21,8 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
     art: "https://vignette.wikia.nocookie.net/selenagomez/images/4/46/Rare_Album_Cover.jpg/revision/latest?cb=20191212172712",
     artist: "Selena Gomez",
     year: 2020,
-    genre: "Pop"
+    genre: "Pop",
+    user: user2
     )}
 
   let!(:review1) {Review.create(
@@ -44,13 +47,11 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
 
   describe "GET#show" do
     it "should return a list of reviews for that album" do
-
       get :show, params: {
         id: review1.id,
         user_id: user1.id,
         album_id: album1.id
        }
-
       returned_json = JSON.parse(response.body)
       expect(response.status).to eq 200
       expect(response.content_type).to eq ("application/json")
@@ -81,7 +82,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
   describe "POST#create" do
     context 'when a successful request is made with proper params' do
       let!(:new_review_hash) {{
-        id: 3,
+        id: 7,
         user: user3,
         user_id: user3.id,
         album: album1,
