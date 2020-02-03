@@ -3,6 +3,8 @@ require 'rails_helper'
 
 describe Album do
 
+  it { should belong_to :user }
+
   it { should have_valid(:album).when("(What's the Story) Morning Glory?") }
   it { should_not have_valid(:album).when(nil, "") }
 
@@ -13,7 +15,7 @@ describe Album do
   it { should_not have_valid(:artist).when(nil, "") }
 
   it { should have_valid(:year).when(1995) }
-  it { should_not have_valid(:year).when(nil, "") }
+  it { should_not have_valid(:year).when(nil, "", 123, "asaf", 12345) }
 
   it { should have_valid(:genre).when("BritPop") }
   it { should_not have_valid(:genre).when(nil, "") }

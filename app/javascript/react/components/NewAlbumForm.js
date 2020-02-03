@@ -113,7 +113,6 @@ const NewAlbumForm = (props) => {
       <div>
         <input className="button" type="submit" value="Add New Album"/>
       </div>
-
     </form>
   )
 }
