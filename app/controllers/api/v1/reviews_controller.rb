@@ -1,6 +1,5 @@
 class Api::V1::ReviewsController < ApplicationController
   protect_from_forgery unless: -> { request.format.json? }
-  skip_before_action :verify_authenticity_token, only: [:create, :show]
 
   def show
     album = Album.find(params[:album_id])
