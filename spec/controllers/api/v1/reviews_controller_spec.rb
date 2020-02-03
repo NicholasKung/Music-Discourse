@@ -20,7 +20,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
     year: 2020,
     genre: "Pop",
     user: user2
-    )}
+  )}
 
   let!(:review1) {Review.create(
     user_id: 1,
