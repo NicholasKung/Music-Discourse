@@ -23,7 +23,6 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
   )}
 
   let!(:review1) {Review.create(
-    user_id: 1,
     user: user1,
     album_id: 1,
     album: album1,
@@ -32,7 +31,6 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
   )}
 
   let!(:review2) {Review.create(
-    user_id: 2,
     user: user2,
     album_id: 1,
     album: album1,
