@@ -106,7 +106,6 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
         sign_in user3
 
         post :create, params: new_review_hash, format: :json
-
         returned_json = JSON.parse(response.body)
 
         expect(response.status).to eq 200
