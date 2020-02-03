@@ -82,7 +82,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
   describe "POST#create" do
     context 'when a successful request is made with proper params' do
       let!(:new_review_hash) {{
-        id: 7,
+        id: 12,
         user: user3,
         user_id: user3.id,
         album: album1,
