@@ -18,6 +18,7 @@ describe("AlbumShow", () => {
      year: 2020,
      genre: "Pop"
    }
+
    wrapper = mount(
     <AlbumShow
       albumObject={albumObject}

@@ -15,7 +15,7 @@ describe("AlbumTile", () => {
      id: 1,
      album: "Rare",
      art: "https://vignette.wikia.nocookie.net/selenagomez/images/4/46/Rare_Album_Cover.jpg/revision/latest?cb=20191212172712",
-     artist: "Selena Gomez",
+     artist: "Selena Gomez"
    }
 
    wrapper = mount(

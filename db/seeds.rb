@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # user = User.create(:id)
-user3 = User.create!(id:3, email:"email3@email.com", role: "member", password:"123456")
-user4 = User.create!(id:4, email:"email4@email.com", role: "member", password:"123456")
-user5 = User.create!(id:5, email:"email5@email.com", role: "member", password:"123456")
-user6 = User.create!(id:6, email:"email6@email.com", role: "member", password:"123456")
+user3 = User.create!(email:"email3@email.com", role: "member", password:"123456")
+user4 = User.create!(email:"email4@email.com", role: "member", password:"123456")
+user5 = User.create!(email:"email5@email.com", role: "member", password:"123456")
+user6 = User.create!(email:"email6@email.com", role: "member", password:"123456")
 
 Album.create(album:"Rare", art:"https://vignette.wikia.nocookie.net/selenagomez/images/4/46/Rare_Album_Cover.jpg/revision/latest?cb=20191212172712", artist: "Selena Gomez", year: 2020, genre: "pop", user:user3)
 

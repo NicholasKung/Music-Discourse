@@ -1,5 +1,5 @@
 body {
-  background: black;
+  background: white;
 }
 
 h1 {
@@ -68,4 +68,18 @@ h1 {
 .index-header {
   text-align: center;
   color: #1EB954;
+}
+
+.reviews-box{
+  border:solid;
+  width: 500px;
+  margin: auto;
+}
+
+.fas.fa-volume-up.clicked{
+  color: green;
+}
+
+.fas.fa-volume-off.clicked{
+  color: red;
 }

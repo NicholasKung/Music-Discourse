@@ -6,4 +6,6 @@ class Album < ApplicationRecord
   validates :artist, presence: true
   validates :year, numericality: true, length: { is: 4 }
   validates :genre, presence: true
+
+  has_many :reviews
 end
