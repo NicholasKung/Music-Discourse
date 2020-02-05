@@ -5,13 +5,13 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
     email: "yo@yo.com",
     password: "password1",
     role: "member"
-    )}
+  )}
 
   let!(:user2) {User.create(
     email: "no@yo.com",
     password: "password2",
     role: "member"
-      )}
+  )}
 
   let!(:album1) {Album.create(
     album: "test album 1",

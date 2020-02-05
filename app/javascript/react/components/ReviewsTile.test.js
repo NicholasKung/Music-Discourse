@@ -16,7 +16,6 @@ describe("ReviewsTile", () => {
       rating: 7,
       review: "good",
       email:"test@test.com"
-
     }
 
     wrapper = mount(

@@ -119,4 +119,17 @@ a:hover {
 
 .top-bar {
   background-color: black;
+
+.reviews-box{
+  border:solid;
+  width: 500px;
+  margin: auto;
+}
+
+.fas.fa-volume-up.clicked{
+  color: green;
+}
+
+.fas.fa-volume-off.clicked{
+  color: red;
 }
