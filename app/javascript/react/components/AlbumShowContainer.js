@@ -60,7 +60,7 @@ const AlbumShowContainer = (props) => {
   }
 
   const deleteAlbum = (albumId) => {
-    fetch(`/albums_delete/${albumId}`, {
+    fetch(`/api/v1/albums/${albumId}`, {
       credentials: "same-origin",
       method: 'DELETE',
       headers: {
@@ -77,7 +77,11 @@ const AlbumShowContainer = (props) => {
         throw error
       }
     })
-      setShouldRedirect(true)
+      .then(response => response.json())
+      .then(body => {
+        setShouldRedirect(true)
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   if(shouldRedirect) {
