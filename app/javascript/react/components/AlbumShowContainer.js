@@ -65,8 +65,7 @@ const AlbumShowContainer = (props) => {
       method: 'DELETE',
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json",
-        redirect: 'follow'
+        "Content-Type": "application/json"
       }
     })
     .then(response => {
