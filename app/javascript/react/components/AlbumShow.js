@@ -1,7 +1,12 @@
 import React from 'react';
 
-const AlbumShow = ({ albumObject }) => {
-  let { id, name, art, artist, year, genre, album } = albumObject
+const AlbumShow = ({ albumObject, deleteAlbum, userSignedIn }) => {
+  let { id, name, art, artist, year, genre, album} = albumObject
+
+  const handleDelete = (event) => {
+    event.preventDefault()
+    deleteAlbum(id)
+  }
 
   return(
     <div>
@@ -11,6 +16,8 @@ const AlbumShow = ({ albumObject }) => {
       <h3>{artist}</h3>
       <h6>{year}</h6>
       <p>{genre}</p>
+      <input onClick={handleDelete} className="button" type="submit" value="Delete Album"/>
+      <input className="button" type="submit" value="Edit Album"/>
     </div>
   )
 }
