@@ -9,7 +9,6 @@ const ReviewsTile = ({ reviewData }) => {
       <span>{email}</span>|
       <h3>{rating}</h3>|
       <h4>{review}</h4>
-      <i className="fas fa-volume-up"></i> | <i className="fas fa-volume-off"></i>
       </li>
     </div>
   )
