@@ -33,7 +33,7 @@ describe("AlbumTile", () => {
  });
 
  it("should contain a link that wraps the img tab to take User to show page", () => {
-   expect(wrapper.find(Link).props().to).toBe("/albums/1")
+   expect(wrapper.find(Link[0]).props().to).toBe("/albums/1")
  })
 
  it("should render a span tag containing the text received via props", () =>{
