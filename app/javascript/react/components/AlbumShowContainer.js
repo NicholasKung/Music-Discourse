@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import AlbumShow from './AlbumShow'
+import { Redirect } from 'react-router-dom'
 import ReviewsTile from './ReviewsTile'
 import ReviewsForm from './ReviewsForm'
 
 const AlbumShowContainer = (props) => {
   const [ album, setAlbum ] = useState({})
   const [ reviews, setReviews ] = useState([])
+  const [shouldRedirect, setShouldRedirect] = useState(false)
+  const [ userSignedIn, setUserSignedIn ] = useState(null)
+
+  let albumId = props.match.params.id
 
   useEffect (() => {
-    let albumId = props.match.params.id
-
     fetch(`/api/v1/albums/${albumId}`)
     .then(response => {
       if (response.ok) {
@@ -22,21 +25,20 @@ const AlbumShowContainer = (props) => {
     .then(fetchedAlbum => {
       setAlbum(fetchedAlbum.album)
       setReviews(fetchedAlbum.album.reviews)
+      setUserSignedIn(fetchedAlbum.user)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }, [])
 
   const submitNewReview = (formPayload) => {
-  let albumId = props.match.params.id
-
     fetch(`/api/v1/albums/${albumId}/reviews`, {
       credentials: "same-origin",
       method: 'POST',
       body: JSON.stringify(formPayload),
       headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        }
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
     })
     .then(response => {
       if (response.ok) {
@@ -51,9 +53,36 @@ const AlbumShowContainer = (props) => {
     .then(body => {
       setReviews([
         ...reviews,
-        body.review])
+        body.review
+      ])
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
+  const deleteAlbum = (albumId) => {
+    fetch(`/albums_delete/${albumId}`, {
+      credentials: "same-origin",
+      method: 'DELETE',
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        redirect: 'follow'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+         error = new Error(errorMessage)
+        throw error
+      }
+    })
+      setShouldRedirect(true)
+  }
+
+  if(shouldRedirect) {
+    return <Redirect to={"/"} />
   }
 
   const reviewsTiles = reviews.map((review) => {
@@ -67,9 +96,10 @@ const AlbumShowContainer = (props) => {
 
   return(
     <div>
-      <h1>This is the album show container page</h1>
       <AlbumShow
         albumObject={album}
+        deleteAlbum={deleteAlbum}
+        userSignedIn={userSignedIn}
       />
     {reviewsTiles}
       <ReviewsForm
