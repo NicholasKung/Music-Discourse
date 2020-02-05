@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 const AlbumTile = ({ albumData }) => {
-  let { id, album, art, artist, year, genre } = albumData
+  let { id, album, art, artist, year, genre, average } = albumData
 
   return(
     <div className ="container tile-position art">
@@ -10,6 +10,7 @@ const AlbumTile = ({ albumData }) => {
       <div className="overlay tile-info">
         <span>{artist}</span> - <p>{album}</p>
       </div>
+      <h4>Average Rating: {average}</h4>
       <br />
     </div>
   )
