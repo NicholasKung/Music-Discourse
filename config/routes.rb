@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   get "/albums", to: 'homes#index'
-  get "/albums/:id", to: 'homes#index'
   get "/albums/new", to: 'homes#index'
+  get "/albums/:id", to: 'homes#index'
 
   namespace :api do
     namespace :v1 do
@@ -13,4 +13,5 @@ Rails.application.routes.draw do
       end
     end
   end
+  resources :albums_delete, only: [:destroy]
 end
