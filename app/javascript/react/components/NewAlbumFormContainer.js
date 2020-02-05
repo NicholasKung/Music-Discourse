@@ -8,7 +8,6 @@ const NewAlbumFormContainer = (props) =>{
   const [albums, setAlbums] = useState([])
 
   const submitNewAlbum = (formPayload) => {
-
   fetch('/api/v1/albums.json', {
     credentials: "same-origin",
     method: 'POST',
