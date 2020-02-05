@@ -1,9 +1,8 @@
 class ReviewSerializer < ActiveModel::Serializer
-  attributes :id, :rating, :review, :user_id, :album_id, :email, :votes
+  attributes :id, :rating, :review, :user_id, :album_id, :email
 
   belongs_to :user
   belongs_to :album
-  has_many :votes
 
   def email
     object.user.email
