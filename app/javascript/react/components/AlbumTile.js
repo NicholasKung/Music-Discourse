@@ -7,14 +7,18 @@ const AlbumTile = ({ albumData }) => {
   return(
     <div className="tile-position">
       <li className="container">
-        <Link to={`/albums/${id}`}>
-          <img src={art} />
-        </Link>
+        <div>
+          <Link to={`/albums/${id}`}>
+            <img src={art} />
+          </Link>
+        </div>
       <div className="overlay">
         <div className="tile-info">
-          <Link to={`/albums/${id}`}>
-            <span>{artist}</span> - <p>{album}</p>
-          </Link>
+          <div>
+            <Link to={`/albums/${id}`}>
+              <span>{artist}</span> - <p>{album}</p>
+            </Link>
+          </div>
         </div>
       </div>
       </li>
