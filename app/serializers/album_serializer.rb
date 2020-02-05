@@ -1,7 +1,8 @@
 class AlbumSerializer < ActiveModel::Serializer
-  attributes :id, :album, :art, :artist, :year, :genre, :reviews, :average
+  attributes :id, :album, :art, :artist, :year, :genre, :reviews, :average, :user
 
   has_many :reviews
+  belongs_to :user
 
   def average
     review_total = []

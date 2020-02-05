@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import { Redirect } from 'react-router-dom'
 import NewAlbumForm from "./NewAlbumForm"
 
-
 const NewAlbumFormContainer = (props) =>{
   const [shouldRedirect, setShouldRedirect] = useState(false)
   const [albums, setAlbums] = useState([])
