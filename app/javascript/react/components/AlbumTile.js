@@ -15,9 +15,7 @@ const AlbumTile = ({ albumData }) => {
       <div className="overlay">
         <div className="tile-info">
           <div>
-            <Link to={`/albums/${id}`}>
               <span>{artist}</span> - <p>{album}</p>
-            </Link>
           </div>
         </div>
       </div>
