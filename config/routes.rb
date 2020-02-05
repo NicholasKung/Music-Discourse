@@ -15,10 +15,4 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :api do
-    namespace :v1 do
-      resources :votes, only: [:show, :create]
-    end
-  end
-
 end
