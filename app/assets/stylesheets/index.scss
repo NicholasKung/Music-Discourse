@@ -8,8 +8,31 @@ body {
 }
 
 h1 {
-  align: center;
+  text-align: center;
   color: #1EB954;
+  margin: auto;
+  // width: 1000px;
+}
+
+h2{
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+h3,h4,h5,h6,p{
+  text-align: center;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.button{
+  display: block;
+  background-color: green;
+  color: white;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 10px;
+  width: 200px;
 }
 
 .top-bar {
@@ -23,10 +46,11 @@ h1 {
 }
 
 img {
-  width: 450px;
-  height: 450px;
+  width: 400px;
+  height: 400px;
   border-radius: 50%;
   display: block;
+  margin: auto;
 }
 
 img:hover {
@@ -34,10 +58,15 @@ img:hover {
   filter: alpha(opacity=50);
 }
 
+.grid{
+  column-count: 3
+}
+
 .tile-position {
-  float:left;
-  padding: 40px;
-  list-style-type: none;
+  // text-align: center;
+  float: left;
+  padding: 60px;
+
 }
 
 .overlay {
@@ -62,7 +91,8 @@ img:hover {
 }
 
 .tile-info {
-  font-family: fantasy, cursive;
+  font-family: 'Titillium Web', sans-serif;
+  text-shadow: 5px 5px 8px #000000;
   color: #1EB954;
   font-weight: bold;
   font-size: 30px;
@@ -73,11 +103,13 @@ img:hover {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
+  margin: auto;
 }
 
 .index-header {
   text-align: center;
   color: #1EB954;
+  align-items: center;
 }
 
 .profile-pic {
@@ -96,6 +128,10 @@ a {
 a:hover {
   transition: 2s;
   color: #1EB954;
+}
+
+.label{
+  color: white;
 }
 
 .field {
@@ -134,3 +170,39 @@ a:hover {
 .fas.fa-volume-off.clicked{
   color: red;
 }
+
+.show-page{
+  text-align: center;
+  // align-items: center;
+}
+
+form{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%
+}
+
+.label-info{
+  color: white;
+}
+
+form.label.textarea{
+  height: 120%
+}
+
+.image-centering{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%
+}
+
+.centered-text{
+  text-align: center;
+}
+// .justify-content{
+//   center;
+// }
+// $input-padding	Color	$form-spacing / 2
+// Padding of text inputs.
