@@ -20,10 +20,22 @@ class Api::V1::AlbumsController < ApplicationController
     end
   end
 
+  def update
+    album = Album.find(params[:id])
+
+    if current_user == album.user
+      album.update_attributes(album_params)
+      render json: album
+    else
+      render json: Album.all
+    end
+  end
+
   def destroy
     album = Album.find(params[:id])
 
-    if album.destroy
+    if current_user == album.user
+      album.destroy
       render json: { message: "Delete Successful." }
     else
       render json: { message: "Could not delete." }
