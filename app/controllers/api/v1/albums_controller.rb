@@ -1,6 +1,6 @@
 class Api::V1::AlbumsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :destroy]
-  before_action :authorize_user, only: [:create, :destroy]
+  before_action :authenticate_user!, only: [:create, :destroy, :update]
+  before_action :authorize_user, only: [:create, :destroy, :update]
 
   protect_from_forgery unless: -> { request.format.json? }
 
@@ -25,7 +25,6 @@ class Api::V1::AlbumsController < ApplicationController
 
   def update
     album = Album.find(params[:id])
-
     if current_user == album.user
       album.update_attributes(album_params)
       render json: album
