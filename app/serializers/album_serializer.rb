@@ -15,7 +15,6 @@ class AlbumSerializer < ActiveModel::Serializer
     else
       return "Not Yet Rated"
     end
-
   end
 
 end
