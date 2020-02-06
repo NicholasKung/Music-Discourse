@@ -10,4 +10,8 @@ class User < ApplicationRecord
 
   mount_uploader :profile_photo, ProfilePhotoUploader
 
+  def admin?
+    role == "admin"
+  end
+
 end
