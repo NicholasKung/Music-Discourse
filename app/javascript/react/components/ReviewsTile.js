@@ -6,9 +6,10 @@ const ReviewsTile = ({ reviewData }) => {
   return(
     <div className="reviews-box">
       <li>
-        <h4>{email} | {review_date}</h4>|
+        <h4>{email}</h4>|
+        <p>{review_date}</p>
         <h3>{rating}</h3>|
-        <h4>{review}</h4>
+        <h5>{review}</h5>
       </li>
     </div>
   )
