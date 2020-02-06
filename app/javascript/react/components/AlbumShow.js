@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom"
 
 const AlbumShow = ({ albumObject, deleteAlbum, userSignedIn }) => {
   let { id, name, art, artist, year, genre, album} = albumObject
@@ -17,7 +18,7 @@ const AlbumShow = ({ albumObject, deleteAlbum, userSignedIn }) => {
       <h6>{year}</h6>
       <p>{genre}</p>
       <input onClick={handleDelete} className="button" type="submit" value="Delete Album"/>
-      <input className="button" type="submit" value="Edit Album"/>
+      <Link to={`/album/${albumObject.id}/edit`} className = "button">Edit Album</Link>
     </div>
   )
 }
