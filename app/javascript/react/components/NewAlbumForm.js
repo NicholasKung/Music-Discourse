@@ -3,6 +3,7 @@ import _ from "lodash"
 import ErrorsList from "./ErrorsList"
 
 const NewAlbumForm = (props) => {
+  const[errors, setErrors] = useState({})
   const [newAlbum, setNewAlbum ] = useState({
     album: "",
     artist: "",
@@ -10,8 +11,6 @@ const NewAlbumForm = (props) => {
     year: "",
     art: ""
   })
-
-  const[errors, setErrors] = useState({})
 
   const handleChange = event => {
     setNewAlbum({
@@ -52,9 +51,7 @@ const NewAlbumForm = (props) => {
 
   return (
     <form onSubmit= {handleSubmit}>
-
       <ErrorsList errors={errors} />
-
       <label>
         Album Title:
         <input
