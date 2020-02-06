@@ -1,4 +1,7 @@
 class Api::V1::AlbumsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :destroy]
+  before_action :authorize_user, only: [:create, :destroy]
+
   protect_from_forgery unless: -> { request.format.json? }
 
   def index
@@ -46,5 +49,11 @@ private
 
   def album_params
     params.permit(:album, :artist, :genre, :year, :art)
+  end
+
+  def authorize_user
+    if !user_signed_in?
+      raise ActionController::RoutingError.new("Sign In Please")
+    end
   end
 end

@@ -127,10 +127,12 @@ a:hover {
   margin: auto;
 }
 
-.fas.fa-volume-up.clicked{
+.fas.fa-volume-up{
   color: green;
+  padding: 5px;
 }
 
-.fas.fa-volume-off.clicked{
+.fas.fa-volume-off{
   color: red;
+  padding: 5px;
 }

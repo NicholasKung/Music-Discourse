@@ -9,6 +9,7 @@ const AlbumShowContainer = (props) => {
   const [ reviews, setReviews ] = useState([])
   const [shouldRedirect, setShouldRedirect] = useState(false)
   const [ userSignedIn, setUserSignedIn ] = useState(null)
+  const [getAverage, setAverage] = useState("")
 
   let albumId = props.match.params.id
 
@@ -25,7 +26,8 @@ const AlbumShowContainer = (props) => {
     .then(fetchedAlbum => {
       setAlbum(fetchedAlbum.album)
       setReviews(fetchedAlbum.album.reviews)
-      setUserSignedIn(fetchedAlbum.album.user)
+      setUserSignedIn(fetchedAlbum.user)
+      setAverage(fetchedAlbum.album.average)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }, [])
@@ -96,13 +98,14 @@ const AlbumShowContainer = (props) => {
       />
     )
   })
-  
+
   return(
     <div>
       <AlbumShow
         albumObject={album}
         deleteAlbum={deleteAlbum}
         userSignedIn={userSignedIn}
+        stateAverage={getAverage}
       />
       {reviewsTiles}
       <ReviewsForm
