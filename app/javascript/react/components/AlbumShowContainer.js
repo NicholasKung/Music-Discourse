@@ -25,7 +25,7 @@ const AlbumShowContainer = (props) => {
     .then(fetchedAlbum => {
       setAlbum(fetchedAlbum.album)
       setReviews(fetchedAlbum.album.reviews)
-      setUserSignedIn(fetchedAlbum.user)
+      setUserSignedIn(fetchedAlbum.album.user)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }, [])
@@ -96,7 +96,7 @@ const AlbumShowContainer = (props) => {
       />
     )
   })
-
+  
   return(
     <div>
       <AlbumShow
@@ -104,7 +104,7 @@ const AlbumShowContainer = (props) => {
         deleteAlbum={deleteAlbum}
         userSignedIn={userSignedIn}
       />
-    {reviewsTiles}
+      {reviewsTiles}
       <ReviewsForm
         onSubmit={submitNewReview}
         albumId={props.match.params.id}
