@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AlbumShow = ({ albumObject, deleteAlbum, userSignedIn }) => {
+const AlbumShow = ({ albumObject, deleteAlbum, userSignedIn, stateAverage }) => {
   let { id, name, art, artist, year, genre, album, average} = albumObject
 
   const handleDelete = (event) => {
@@ -12,7 +12,7 @@ const AlbumShow = ({ albumObject, deleteAlbum, userSignedIn }) => {
     <div>
       <h1>This is the album show page</h1>
       <h2>{album}</h2>
-      <h3>Average Rating: {average}</h3>
+      <h3>Average Rating: {stateAverage}</h3>
       <img src={art} />
       <h4>{artist}</h4>
       <h6>{year}</h6>
