@@ -1,4 +1,7 @@
 class Api::V1::AlbumsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authorize_user, except: [:index, :show]
+
   protect_from_forgery unless: -> { request.format.json? }
 
   def index
@@ -10,18 +13,26 @@ class Api::V1::AlbumsController < ApplicationController
   end
 
   def create
-    album = Album.new(album_params)
-    album.user = current_user
-    if album.save
-      render json: { album: album }
-    else
-      render json: { error: album.errors.full_messages }, status: :unprocessable_entity
+    if user_signed_in?
+      album = Album.new(album_params)
+      album.user = current_user
+      if album.save
+        render json: { album: album }
+      else
+        render json: { error: album.errors.full_messages }, status: :unprocessable_entity
+      end
     end
   end
 
-private
+  private
 
   def album_params
     params.permit(:album, :artist, :genre, :year, :art)
+  end
+
+  def authorize_user
+    if !user_signed_in?
+      raise ActionController::RoutingError.new("Sign In Please")
+    end
   end
 end
