@@ -53,9 +53,10 @@ const ReviewsTile = ({ reviewData }) => {
   return(
     <div className="reviews-box">
       <li>
-        <span>{email} -- {review_date}</span>|
+        <span>{email}</span>|
         <h3>{rating}</h3>|
         <h4>{review}</h4>
+        <h5>{review_date}</h5>
         <VotesTile
           handleVoteClick={handleVoteClick}
           votes={votes}
