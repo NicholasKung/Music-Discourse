@@ -1,10 +1,13 @@
 import React, { useState } from "react"
 import _ from "lodash"
+import { Redirect } from 'react-router-dom'
 import ErrorsList from "./ErrorsList"
 
-const NewAlbumForm = (props) => {
+const EditAlbumForm = (props) => {
+  let albumId = props.match.params.id
+  const [shouldRedirect, setShouldRedirect] = useState(false)
   const[errors, setErrors] = useState({})
-  const [newAlbum, setNewAlbum ] = useState({
+  const [ editAlbum, setEditAlbum ] = useState({
     album: "",
     artist: "",
     genre: "",
@@ -13,8 +16,8 @@ const NewAlbumForm = (props) => {
   })
 
   const handleChange = event => {
-    setNewAlbum({
-      ...newAlbum,
+    setEditAlbum({
+      ...editAlbum,
       [event.currentTarget.id]: event.currentTarget.value
     })
   }
@@ -23,7 +26,7 @@ const NewAlbumForm = (props) => {
     let submitErrors = {}
     const requiredFields = ["album", "artist", "genre", "year", "art"]
     requiredFields.forEach((field) => {
-      if(newAlbum[field].trim() === ""){
+      if(editAlbum[field].trim() === ""){
         submitErrors = {
           ...submitErrors,
           [field]: "is blank"
@@ -34,12 +37,12 @@ const NewAlbumForm = (props) => {
     return _.isEmpty(submitErrors)
   }
 
-  const handleSubmit = (event) => {
+  const handleEdit = (event) => {
     event.preventDefault()
-    let formPayload = newAlbum;
+    let formPayload = editAlbum;
     if(validFormSubmission()){
-      props.onSubmit(formPayload)
-      setNewAlbum({
+      editFetch(formPayload)
+      setEditAlbum({
         album: "",
         artist: "",
         genre: "",
@@ -49,8 +52,39 @@ const NewAlbumForm = (props) => {
     }
   }
 
+  const editFetch = (formPayload) => {
+    fetch(`/api/v1/albums/${albumId}`, {
+      credentials: "same-origin",
+      method: 'PATCH',
+      body: JSON.stringify(formPayload),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+         error = new Error(errorMessage)
+        throw error
+      }
+    })
+      .then(response => response.json())
+      .then(body => {
+        setEditAlbum(body.album)
+        setShouldRedirect(true)
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
+if(shouldRedirect) {
+  return <Redirect to ={`/albums/${albumId}`} />
+}
+
   return (
-    <form onSubmit= {handleSubmit}>
+    <form onSubmit= {handleEdit}>
       <ErrorsList errors={errors} />
       <label>
         Album Title:
@@ -58,7 +92,7 @@ const NewAlbumForm = (props) => {
           name="album"
           id="album"
           type="text"
-          value={newAlbum.album}
+          value={editAlbum.album}
           onChange={handleChange}
         />
       </label>
@@ -69,7 +103,7 @@ const NewAlbumForm = (props) => {
           name="artist"
           id="artist"
           type="text"
-          value={newAlbum.artist}
+          value={editAlbum.artist}
           onChange={handleChange}
         />
       </label>
@@ -80,7 +114,7 @@ const NewAlbumForm = (props) => {
           name="genre"
           id="genre"
           type="text"
-          value={newAlbum.genre}
+          value={editAlbum.genre}
           onChange={handleChange}
         />
       </label>
@@ -91,7 +125,7 @@ const NewAlbumForm = (props) => {
           name="year"
           id="year"
           type="number"
-          value={newAlbum.year}
+          value={editAlbum.year}
           onChange={handleChange}
         />
       </label>
@@ -102,16 +136,16 @@ const NewAlbumForm = (props) => {
           name="art"
           id="art"
           type="text"
-          value={newAlbum.art}
+          value={editAlbum.art}
           onChange={handleChange}
         />
       </label>
 
       <div>
-        <input className="button" type="submit" value="Add New Album"/>
+        <input className="button" type="submit" value="Edit Album"/>
       </div>
     </form>
   )
 }
 
-export default NewAlbumForm
+export default EditAlbumForm

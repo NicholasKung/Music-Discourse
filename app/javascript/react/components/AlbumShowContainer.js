@@ -107,7 +107,7 @@ const AlbumShowContainer = (props) => {
         userSignedIn={userSignedIn}
         stateAverage={getAverage}
       />
-    {reviewsTiles}
+      {reviewsTiles}
       <ReviewsForm
         onSubmit={submitNewReview}
         albumId={props.match.params.id}
