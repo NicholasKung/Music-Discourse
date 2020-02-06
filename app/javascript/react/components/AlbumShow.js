@@ -11,7 +11,6 @@ const AlbumShow = ({ albumObject, deleteAlbum, userSignedIn, stateAverage }) => 
 
   return(
     <div>
-      <h1>This is the album show page</h1>
       <h2>{album}</h2>
       <h3>Average Rating: {stateAverage}</h3>
       <img src={art} />
