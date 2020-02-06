@@ -6,7 +6,6 @@ import AlbumShowContainer from './AlbumShowContainer'
 
 export const App = (props) => {
   return (
-
     <div>
       <BrowserRouter>
         <Switch>

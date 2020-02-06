@@ -16,7 +16,7 @@ const AlbumIndex = (props) => {
       })
       .then(response => response.json())
       .then(body => {
-        setAlbums(body)
+        setAlbums(body.albums)
       })
       .catch(error => {
         console.log(`Error fetching albums: ${error.message}`)

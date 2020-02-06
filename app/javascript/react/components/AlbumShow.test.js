@@ -18,6 +18,7 @@ describe("AlbumShow", () => {
      year: 2020,
      genre: "Pop"
    }
+
    wrapper = mount(
     <AlbumShow
       albumObject={albumObject}
@@ -30,8 +31,12 @@ describe("AlbumShow", () => {
      src: "https://vignette.wikia.nocookie.net/selenagomez/images/4/46/Rare_Album_Cover.jpg/revision/latest?cb=20191212172712"})
  });
 
+ it("should render a h4 tag containing the text received via props", () =>{
+   expect(wrapper.find('h4').text()).toBe("Selena Gomez")
+ });
+
  it("should render a h3 tag containing the text received via props", () =>{
-   expect(wrapper.find('h3').text()).toBe("Selena Gomez")
+   expect(wrapper.find('h3').text()).toBe("Average Rating: ")
  });
 
  it("should render a h2 tag containing the text received via props", () =>{

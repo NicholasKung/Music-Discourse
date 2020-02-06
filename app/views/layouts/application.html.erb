@@ -5,24 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
 </head>
 <body>
   <nav class="top-bar">
     <h1><a href="/">MusicDiscourse</a></h1>
-
     <section class="top-bar-section">
       <ul class="right">
         <%- if current_user -%>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-          <li> <img src = <%= current_user.profile_photo %> alt="Profile Picture" height="50" width="50"> </li>
+          <li>
+            <div>
+              <img class="profile-pic" src = <%= current_user.profile_photo %> alt="Profile Picture" height="50" width="50">
+            </div>
+          </li>
         <%- else -%>
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
           <li><%= link_to 'Sign In', new_user_session_path %></li>
         <%- end -%>
-
       </ul>
     </section>
   </nav>
+  <%- if current_user -%>
+    <li class="button"><%= link_to 'Add New Album', albums_new_path %></li>
+  <%- end -%>
 
   <%- flash.each do |key, value| -%>
     <div class="flash flash-<%= key %>">

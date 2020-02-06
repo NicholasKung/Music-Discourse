@@ -9,7 +9,8 @@ class Api::V1::AlbumsController < ApplicationController
   end
 
   def show
-    render json: Album.find(params[:id])
+    album = Album.find(params[:id])
+    render json: album
   end
 
   def create
@@ -24,7 +25,17 @@ class Api::V1::AlbumsController < ApplicationController
     end
   end
 
-  private
+  def destroy
+    album = Album.find(params[:id])
+
+    if album.destroy
+      render json: { message: "Delete Successful." }
+    else
+      render json: { message: "Could not delete." }
+    end
+  end
+
+private
 
   def album_params
     params.permit(:album, :artist, :genre, :year, :art)

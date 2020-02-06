@@ -1,5 +1,6 @@
 class Album < ApplicationRecord
   belongs_to :user
+  has_many :reviews, dependent: :delete_all
 
   validates :album, presence: true
   validates :art, presence: true

@@ -6,7 +6,6 @@ Enzyme.configure({ adapter: new Adapter() })
 
 describe("NewAlbumForm", () => {
   let wrapper, onClickMock
-
   beforeEach(() => {
     onClickMock = jest.fn()
     wrapper = mount(
@@ -14,11 +13,6 @@ describe("NewAlbumForm", () => {
         onSubmit={onClickMock}
       />
     )
-  })
-
-  it("Submits form when button is clicked", () => {
-    wrapper.simulate('submit');
-    expect(onClickMock).toHaveBeenCalled()
   })
 
   it("should render a form component with an input tag used for a submit button", () => {

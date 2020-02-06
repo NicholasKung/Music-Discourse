@@ -1,5 +1,10 @@
 body {
-  background: white;
+  height: 100%;
+  background-image: linear-gradient(to top left, black 60%, darkgreen);
+  color: #1EB954;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
 }
 
 h1 {
@@ -8,18 +13,23 @@ h1 {
 }
 
 .top-bar {
-  opacity: 0.9;
-  font-family: fantasy;
+  background-image: linear-gradient(to bottom left, black 60%, darkgreen);
 }
 
-.art {
+.top-bar ul, .top-bar a {
+  background-color: transparent;
+  color: white;
+  font-size: 30px;
+}
+
+img {
   width: 450px;
   height: 450px;
   border-radius: 50%;
   display: block;
 }
 
-.art:hover {
+img:hover {
   opacity: 0.8;
   filter: alpha(opacity=50);
 }
@@ -68,4 +78,59 @@ h1 {
 .index-header {
   text-align: center;
   color: #1EB954;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+}
+
+nav {
+  background-color: black;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  transition: 2s;
+  color: #1EB954;
+}
+
+.field {
+  margin: auto;
+  width: 500px;
+}
+
+.input-field {
+  background-color: black;
+  color: #1EB954;
+}
+
+.input-field:focus {
+  background-color: black;
+}
+
+.actions {
+  margin: auto;
+  width: 500px;
+}
+
+.top-bar {
+  background-color: black;
+}
+
+.reviews-box{
+  border:solid;
+  width: 500px;
+  margin: auto;
+}
+
+.fas.fa-volume-up.clicked{
+  color: green;
+}
+
+.fas.fa-volume-off.clicked{
+  color: red;
 }

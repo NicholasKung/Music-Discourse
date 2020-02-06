@@ -1,4 +1,6 @@
 import React, { useState } from "react"
+import _ from "lodash"
+import ErrorsList from "./ErrorsList"
 
 const NewAlbumForm = (props) => {
   const [newAlbum, setNewAlbum ] = useState({
@@ -9,6 +11,8 @@ const NewAlbumForm = (props) => {
     art: ""
   })
 
+  const[errors, setErrors] = useState({})
+
   const handleChange = event => {
     setNewAlbum({
       ...newAlbum,
@@ -16,21 +20,41 @@ const NewAlbumForm = (props) => {
     })
   }
 
+  const validFormSubmission = () => {
+    let submitErrors = {}
+    const requiredFields = ["album", "artist", "genre", "year", "art"]
+    requiredFields.forEach((field) => {
+      if(newAlbum[field].trim() === ""){
+        submitErrors = {
+          ...submitErrors,
+          [field]: "is blank"
+        }
+      }
+    })
+    setErrors(submitErrors)
+    return _.isEmpty(submitErrors)
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault()
     let formPayload = newAlbum;
-    props.onSubmit(formPayload)
-    setNewAlbum({
-      album: "",
-      artist: "",
-      genre: "",
-      year: "",
-      art: ""
-    })
+    if(validFormSubmission()){
+      props.onSubmit(formPayload)
+      setNewAlbum({
+        album: "",
+        artist: "",
+        genre: "",
+        year: "",
+        art: ""
+      })
+    }
   }
 
   return (
     <form onSubmit= {handleSubmit}>
+
+      <ErrorsList errors={errors} />
+
       <label>
         Album Title:
         <input
