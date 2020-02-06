@@ -12,9 +12,9 @@ export const App = (props) => {
         <Switch>
           <Route exact path="/" component={AlbumIndex} />
           <Route exact path="/albums" component={AlbumIndex} />
-          <Route exact path="/album/:id/edit" component={EditAlbumForm} />
           <Route exact path="/albums/new" component={NewAlbumFormContainer} />
           <Route exact path="/albums/:id" component={AlbumShowContainer} />
+          <Route exact path="/album/:id/edit" component={EditAlbumForm} />
         </Switch>
       </BrowserRouter>
     </div>

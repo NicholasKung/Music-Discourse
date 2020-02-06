@@ -5,7 +5,6 @@ import ErrorsList from "./ErrorsList"
 
 const EditAlbumForm = (props) => {
   let albumId = props.match.params.id
-
   const [shouldRedirect, setShouldRedirect] = useState(false)
   const[errors, setErrors] = useState({})
   const [ editAlbum, setEditAlbum ] = useState({
