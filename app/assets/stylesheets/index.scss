@@ -1,10 +1,19 @@
 body {
   height: 100%;
-  background-image: linear-gradient(to top left, black 60%, darkgreen);
+  background-image: linear-gradient(to top left, black 40%, orange);
   color: #1EB954;
   background-repeat: no-repeat;
   background-size: cover;
   background-color: black;
+}
+
+.music {
+  padding-left: 10px;
+  margin-left: 70px;
+}
+
+ top-bar-section {
+  text-decoration: none;
 }
 
 h1 {
@@ -17,16 +26,30 @@ h2 {
   font-family: sans-serif;
   font-weight: bold;
   text-align: center;
+  color: white;
+}
+
+span {
+  color: white;
 }
 
 h3,h4,h5,h6,p {
+  color: white;
   text-align: center;
   font-family:'Muli', sans-serif;
 }
 
+.title {
+  text-shadow: 5px 2px black;
+}
+
+.album-rating {
+  text-shadow: 3px 2px black;
+}
+
 .button {
   display: block;
-  background-color: green;
+  background-color: tan ;
   color: white;
   border-radius: 10px;
   margin: auto;
@@ -35,13 +58,16 @@ h3,h4,h5,h6,p {
 }
 
 .top-bar {
-  background-image: linear-gradient(to bottom left, black 60%, darkgreen);
-}
-
-.top-bar ul, .top-bar a {
-  background-color: transparent;
-  color: white;
-  font-size: 30px;
+  background-image: linear-gradient(to bottom left, black 40%, orange);
+  a {
+    background-color: transparent;
+    color: white;
+    font-size: 30px;  }
+  ul {
+    background-color: transparent;
+    color: white;
+    font-size: 10px;
+  }
 }
 
 img {
@@ -62,10 +88,6 @@ img:hover {
   padding: 40px;
   list-style-type: none;
 }
-
-// .grid {
-//   column-count: 3;
-// }
 
 .tile-position {
   float:left;
@@ -96,7 +118,7 @@ img:hover {
 .tile-info {
   font-family: 'Muli', sans-serif;
   text-shadow: 5px 5px 8px #000000;
-  color: #1EB954;
+  color: white;
   font-weight: bold;
   font-size: 30px;
   position: absolute;
@@ -111,7 +133,7 @@ img:hover {
 
 .index-header {
   text-align: center;
-  color: #1EB954;
+  color: white;
   align-items: center;
 }
 
@@ -140,7 +162,7 @@ a:hover {
 
 .input-field {
   background-color: black;
-  color: #1EB954;
+  color: #BB5A0B;
 }
 
 .input-field:focus {
@@ -152,15 +174,75 @@ a:hover {
   width: 500px;
 }
 
-.top-bar {
-  background-color: black;
+.profile-photo {
+  align-items: left;
+  height: 70px;
+  width: 70px;
+  display: inline;
+  margin-bottom: 10px;
 }
 
 .reviews-box {
-  border:solid;
+  padding: 10px 20px 10px 20px;
+  align-content: center;
+  box-shadow: 5px 5px 30px  white;
   width: 500px;
-  margin: auto;
+  margin: 70px auto;
+  display: center;
+  background-color: black;
+  opacity: 60%;
+  text-align: center;
 }
+
+.email {
+  color: white;
+  font-size: 25px;
+  // display: inline;
+  padding-left: 5px;
+}
+
+.text {
+  color: white;
+  font-size: 25px;
+}
+
+.rating {
+  color: white;
+}
+
+.date {
+  color: white;
+}
+
+.artist {
+  color: white;
+  font-size: 50px;
+  text-shadow: 5px 5px black;
+}
+.album {
+  color: white;
+  font-size: 55px;
+  text-shadow: 5px 5px black;
+}
+
+.avgrating {
+  color: white;
+  font-size: 30px;
+  text-shadow: 3px 0 black;
+}
+
+.year {
+  color: white;
+  font-size: 30px;
+  text-shadow: 3px 0 black;
+}
+
+.genre {
+  color: white;
+  font-size: 20px;
+  text-shadow: 3px 0 black;
+}
+
 
 .fas.fa-volume-up {
   color: green;
@@ -182,3 +264,6 @@ form {
   margin-right: auto;
   width: 20%
 }
+ li {
+   list-style: none;
+ }

@@ -1,5 +1,5 @@
 class ReviewSerializer < ActiveModel::Serializer
-  attributes :id, :rating, :review, :user_id, :album_id, :email, :album, :review_date
+  attributes :id, :rating, :review, :user_id, :album_id, :email, :album, :review_date, :user
 
   belongs_to :user
   belongs_to :album

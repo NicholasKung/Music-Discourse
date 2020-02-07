@@ -7,16 +7,26 @@ Enzyme.configure({ adapter: new Adapter() })
 import ReviewsTile from "./ReviewsTile"
 
 describe("ReviewsTile", () => {
-  let wrapper
-  let reviewData
+  let wrapper, reviewData, user
 
   beforeEach(() => {
+
+    user = {
+      id:1,
+      email:"email6@email.com",
+      role: "member",
+      password:"123456",
+      profile_photo: {
+        url: "www.cnn.com"
+      }
+    }
     reviewData = {
       id: 1,
       rating: 7,
       review: "good",
       email:"test@test.com",
-      review_date: "February 03, 2020 - 08:59pm"
+      review_date: "February 03, 2020 - 08:59pm",
+      user: user
     }
 
     wrapper = mount(
@@ -40,7 +50,7 @@ describe("ReviewsTile", () => {
     expect(wrapper.find('h3').text()).toEqual("7")
   })
 
-  it("should render a h4 tag containing the list of items via props", () => {
+  it("should render a h5 tag containing the list of items via props", () => {
     expect(wrapper.find('h5').text()).toEqual("good")
   })
 })

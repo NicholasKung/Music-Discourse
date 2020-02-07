@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # user = User.create(:id)
+
 User.destroy_all
 Album.destroy_all
 user9 = User.create!(email:"email9@email.com", role: "member", password:"123456")

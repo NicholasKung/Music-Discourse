@@ -19,7 +19,7 @@ const AlbumTile = ({ albumData }) => {
           </div>
         </div>
       </div>
-      <h4>Average Rating: {average}</h4>
+      <h4 className="album-rating">Average Rating: {average}</h4>
       <br />
       </li>
     </div>
