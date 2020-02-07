@@ -11,13 +11,12 @@ const AlbumShow = ({ albumObject, deleteAlbum, userSignedIn, stateAverage }) => 
 
   return(
     <div>
-      <h1>This is the album show page</h1>
-      <h2>{album}</h2>
-      <h3>Average Rating: {stateAverage}</h3>
+      <h2 className="album">{album}</h2>
+      <h3 className="avgrating">Average Rating: {stateAverage}</h3>
       <img src={art} />
-      <h4>{artist}</h4>
-      <h6>{year}</h6>
-      <p>{genre}</p>
+      <h4 className="artist">{artist}</h4>
+      <h6 className="year">{year}</h6>
+      <p className="genre">{genre}</p>
       <input onClick={handleDelete} className="button" type="submit" value="Delete Album"/>
       <Link to={`/album/${albumObject.id}/edit`} className = "button">Edit Album</Link>
     </div>
