@@ -84,9 +84,9 @@ img:hover {
 }
 
 .tile-position {
-  float:left;
-  padding: 40px;
-  list-style-type: none;
+  width: 33rem;
+  margin: 0;
+  display: inline-block;
 }
 
 .tile-position {
@@ -243,7 +243,6 @@ a:hover {
   text-shadow: 3px 0 black;
 }
 
-
 .fas.fa-volume-up {
   color: green;
   padding: 5px;
@@ -266,4 +265,14 @@ form {
 }
  li {
    list-style: none;
+ }
+
+ ul {
+   width: 100rem;
+   margin: 0 auto;
+ }
+
+ .sign {
+   float: right;
+   padding: 10px;
  }
