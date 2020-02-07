@@ -11,10 +11,6 @@ const ReviewsTile = ({ reviewData }) => {
         <h3 className="review rating">{rating}</h3>
         <h4 className="review text">{review}</h4>
         <div className="date">{review_date}</div>
-        <VotesTile
-          handleVoteClick={handleVoteClick}
-          votes={votes}
-          />
       </li>
     </div>
   )
