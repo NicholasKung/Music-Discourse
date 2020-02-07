@@ -41,6 +41,6 @@ describe("ReviewsTile", () => {
   })
 
   it("should render a h4 tag containing the list of items via props", () => {
-    expect(wrapper.find('h5').text()).toEqual("good")
+    expect(wrapper.find('h4').text()).toEqual("good")
   })
 })
