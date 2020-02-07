@@ -3,7 +3,6 @@ class ReviewSerializer < ActiveModel::Serializer
 
   belongs_to :user
   belongs_to :album
-  has_many :votes
 
   def email
     object.user.email
